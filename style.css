@@ -7,6 +7,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-attachment: fixed;
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
@@ -749,7 +750,19 @@ body::before {
 }
 
 @media (max-width: 768px) {
-    .main-title { font-size: 2.5rem; }
+    body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background-attachment: scroll;
+    }
+    
+    body::before {
+        background: 
+            radial-gradient(circle at 20% 80%, rgba(255, 182, 193, 0.2) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(255, 192, 203, 0.2) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(255, 105, 180, 0.1) 0%, transparent 50%);
+    }
+    
+    .main-title { font-size: 2.5rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); }
     .profile-photos { gap: 15px; }
     .photo-frame { width: 120px; height: 120px; }
     .countdown-grid { grid-template-columns: repeat(2, 1fr); }
@@ -767,4 +780,14 @@ body::before {
     .dream-item { flex-direction: column; text-align: center; }
     .dream-icon { margin-bottom: 10px; margin-right: 0; }
     .love-quotes { grid-template-columns: 1fr; }
+    
+    /* Enhanced text shadows for mobile readability */
+    .love-subtitle, .memory-gallery h3, .extended-gallery h3, 
+    .romantic-promises h3, .love-reasons h3, .countdown-title {
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+    
+    .reason-item p, .dream-item p, .quote-card p {
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    }
 }
